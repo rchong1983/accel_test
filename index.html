@@ -35,7 +35,7 @@
 		var element = document.getElementById('start_button');
 		element.style.visibility = "hidden";
 		var element = document.getElementById('stop_button');
-		element.style.visibility = "inline";
+		element.style.visibility = "visible";
 
 		// Update acceleration every 3 seconds
         var options = { frequency: 100 };
@@ -51,7 +51,7 @@
             var element = document.getElementById('start_button');
 			element.style.visibility = "visible";
             var element = document.getElementById('stop_button');
-			element.style.display = "none";
+			element.style.visibility = "hidden";
         }
     }
 
@@ -102,13 +102,13 @@
   </head>
   <body>
 	<h1>Device Motion</h1>
-    <div id="accelerometer_max">Waiting for accelerometer...</div>
-	<br />
     <div id="accelerometer_now">Waiting for accelerometer...</div>
+	<br />
+    <div id="accelerometer_max">Waiting for accelerometer...</div>
 	<br />
     <div id="accelerometer_min">Waiting for accelerometer...</div>
 	<br />
-    <button id="stop_button" style="display:none" onclick="stopWatch();">Stop Watching</button>
-    <button id="start_button" style="display:none" onclick="startWatch();">Start Watching</button>
+    <button id="stop_button" style="visibility:hidden" onclick="stopWatch();">Stop Watching</button>
+    <button id="start_button" style="visibility:hidden" onclick="startWatch();">Start Watching</button>
   </body>
 </html>

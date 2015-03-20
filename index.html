@@ -35,7 +35,7 @@
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
             var element = document.getElementById('start_button');
-			element.style.visibility = "show";
+			element.style.visibility = "visible";
             var element = document.getElementById('stop_button');
 			element.style.visibility = "hidden";
         }
@@ -63,7 +63,7 @@
   <body>
 	<h1>Device Motion</h1>
     <div id="accelerometer">Waiting for accelerometer...</div>
-    <button id="stop_button" style="visibility:show" onclick="stopWatch();">Stop Watching</button>
+    <button id="stop_button" style="visibility:visible" onclick="stopWatch();">Stop Watching</button>
     <button id="start_button" style="visibility:hidden" onclick="startWatch();">Start Watching</button>
   </body>
 </html>

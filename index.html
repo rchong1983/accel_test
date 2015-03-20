@@ -6,15 +6,18 @@
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
     // The watch id references the current `watchAcceleration`
+	
     var watchID = null;
+	
 	var got_accel = 0;
-    var accel_x_max = 0;
-    var accel_x_max = 0;
-    var accel_x_max = 0;
+	
+    var accel_x_max = 0.0;
+    var accel_x_max = 0.0;
+    var accel_x_max = 0.0;
 
-    var accel_x_min = 10;
-    var accel_y_min = 10;
-    var accel_z_min = 10;
+    var accel_x_min = 10.0;
+    var accel_y_min = 10.0;
+    var accel_z_min = 10.0;
 
     // Wait for device API libraries to load
     //
@@ -67,7 +70,7 @@
                             'Accel Y: ' + acceleration.y + '<br />' +
                             'Accel Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
-/*
+
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
@@ -77,7 +80,7 @@
                             'Max accel Y: ' + accel_y_max + '<br />' +
                             'Max accel Z: ' + accel_z_max + '<br />';
 
-		accel_x_min = Math.min(accel_x_min, acceleration.x);
+/*		accel_x_min = Math.min(accel_x_min, acceleration.x);
 		accel_y_min = Math.min(accel_y_min, acceleration.y);
 		accel_z_min = Math.min(accel_z_min, acceleration.z);
 		

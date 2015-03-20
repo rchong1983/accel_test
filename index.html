@@ -15,14 +15,16 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        initial_startWatch();
+        startWatch();
     }
 
     // Start watching the acceleration
     //
-    function initial_startWatch() {
+    function startWatch() {
+
         // Update acceleration every 3 seconds
         var options = { frequency: 100 };
+
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
@@ -32,28 +34,8 @@
         if (watchID) {
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
-			var element = document.getElementById('start_button');
-			element.style.visibility ="visibe";
-			var element = document.getElementById('stop_button');
-			element.style.visibility ="hidden";
         }
     }
-	
-	// Start watching the acceleration
-    //
-    function startWatch() {
-        var options = { frequency: 100 };
-        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-
-/*
- 		var element = document.getElementById('start_button');
-		element.style.visibility ="hidden";
-		var element = document.getElementById('stop_button');
-		element.style.visibility ="visible";
-*/
- }
-    }
-
 
     // onSuccess: Get a snapshot of the current acceleration
     //
@@ -77,8 +59,6 @@
   <body>
 	<h1>Device Motion</h1>
     <div id="accelerometer">Waiting for accelerometer...</div>
-	<br />
     <button onclick="stopWatch();">Stop Watching</button>
-    <button onclick="startWatch();">Start Watching</button>
   </body>
 </html>

@@ -68,20 +68,20 @@
 	    got_accel = 1;
 		
         var element = document.getElementById('accelerometer_now');
-        element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
-                            'Accel Y: ' + acceleration.y + '<br />' +
-                            'Accel Z: ' + acceleration.z + '<br />' +
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-
+        element.innerHTML = "Timestamp: " + acceleration.timestamp + "<br /><br />";
+							"Accel X: " + accel_x_max + "<br />" +
+                            "Accel Y: " + acceleration.y + "<br />" +
+                            "Accel Z: " + acceleration.z + "<br />" +
+                            
 /*
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
 */							
         var element = document.getElementById('accelerometer_max');
-        element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
-                            'Max accel Y: ' + accel_y_max + '<br />' +
-                            'Max accel Z: ' + accel_z_max + '<br />';
+        element.innerHTML = "Max accel X: " + accel_x_max + "<br />" +
+                            "Max accel Y: " + accel_y_max + "<br />" +
+                            "Max accel Z: " + accel_z_max + "<br />";
 
 /*
 		accel_x_min = Math.min(accel_x_min, acceleration.x);
@@ -106,7 +106,7 @@
   <body>
 	<h1>Device Motion</h1>
 	<p id="test"></p>
-	<br />
+
     <div id="accelerometer_now">Waiting for accelerometer...</div>
 	<br />
     <div id="accelerometer_max">Waiting for max accelerometer...</div>

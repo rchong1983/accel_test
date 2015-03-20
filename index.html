@@ -46,7 +46,7 @@
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
             var element = document.getElementById('start_button');
-			element.style.visibility = "show";
+			element.style.visibility = "visible";
             var element = document.getElementById('stop_button');
 			element.style.display = "none";
         }
@@ -57,7 +57,7 @@
     function onSuccess(acceleration) {
 		if (got_accel == 0) {
 		    var element = document.getElementById('stop_button');
-			element.style.visibility = "show";
+			element.style.visibility = "visible";
 		}
 	    got_accel = 1;
 		

@@ -32,9 +32,9 @@
     // Start watching the acceleration
     //
     function startWatch() {
-		var element = document.getElementById('start_button');
+		var element = document.getElementById("start_button");
 		element.style.visibility = "hidden";
-		var element = document.getElementById('stop_button');
+		var element = document.getElementById("stop_button");
 		element.style.visibility = "visible";
 
 		// Update acceleration every 3 seconds
@@ -48,9 +48,9 @@
         if (watchID) {
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
-            var element = document.getElementById('start_button');
+            var element = document.getElementById("start_button");
 			element.style.visibility = "visible";
-            var element = document.getElementById('stop_button');
+            var element = document.getElementById("stop_button");
 			element.style.visibility = "hidden";
         }
     }
@@ -59,37 +59,33 @@
     //
     function onSuccess(acceleration) {
 		if (got_accel == 0) {
-		    var element = document.getElementById('test');
-			element.innerHTML = "hi there";
+		    var element = document.getElementById("test");
+			element.innerHTML = 'hi there';
 			
-		    var element = document.getElementById('stop_button');
+		    var element = document.getElementById("stop_button");
 			element.style.visibility = "visible";
 		}
 	    got_accel = 1;
 		
-        var element = document.getElementById('accelerometer_now');
-        element.innerHTML = "Timestamp: " + acceleration.timestamp + "<br /><br />";
-							"Accel X: " + accel_x_max + "<br />" +
-                            "Accel Y: " + acceleration.y + "<br />" +
-                            "Accel Z: " + acceleration.z + "<br />" +
-                            
-/*
+        var element = document.getElementById("accelerometer_now");
+        element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
+                            'Accel Y: ' + acceleration.y + '<br />' +
+                            'Accel Z: ' + acceleration.z + '<br />' +
+                            'Timestamp: '      + acceleration.timestamp + '<br />';
+
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
-*/							
-        var element = document.getElementById('accelerometer_max');
-        element.innerHTML = "Max accel X: " + accel_x_max + "<br />" +
-                            "Max accel Y: " + accel_y_max + "<br />" +
-                            "Max accel Z: " + accel_z_max + "<br />";
+        var element = document.getElementById("accelerometer_max");
+        element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
+                            'Max accel Y: ' + accel_y_max + '<br />' +
+                            'Max accel Z: ' + accel_z_max + '<br />';
 
-/*
 		accel_x_min = Math.min(accel_x_min, acceleration.x);
 		accel_y_min = Math.min(accel_y_min, acceleration.y);
 		accel_z_min = Math.min(accel_z_min, acceleration.z);
-*/
 		
-        var element = document.getElementById('accelerometer_min');
+        var element = document.getElementById("accelerometer_min");
         element.innerHTML = 'Min accel X: ' + accel_x_min + '<br />' +
                             'Min accel Y: ' + accel_y_min + '<br />' +
                             'Min accel Z: ' + accel_z_min + '<br />';

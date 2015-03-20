@@ -7,6 +7,13 @@
     <script type="text/javascript" charset="utf-8">
     // The watch id references the current `watchAcceleration`
     var watchID = null;
+    var accel_x_max = 0;
+    var accel_x_max = 0;
+    var accel_x_max = 0;
+
+    var accel_x_min = 10;
+    var accel_y_min = 10;
+    var accel_z_min = 10;
 
     // Wait for device API libraries to load
     //
@@ -47,12 +54,28 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-        var element = document.getElementById('accelerometer');
-
-        element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
-                            'Acceleration Y: ' + acceleration.y + '<br />' +
-                            'Acceleration Z: ' + acceleration.z + '<br />' +
+        var element = document.getElementById('accelerometer_now');
+        element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
+                            'Accel Y: ' + acceleration.y + '<br />' +
+                            'Accel Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
+
+		accel_x_max = Math.max(accel_x_max, acceleration.x);
+		accel_y_max = Math.max(accel_y_max, acceleration.y);
+		accel_z_max = Math.max(accel_z_max, acceleration.z);
+							
+        var element = document.getElementById('accelerometer_max');
+        element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
+                            'Max accel Y: ' + accel_y_max + '<br />' +
+                            'Max accel Z: ' + accel_z_max + '<br />';
+
+		accel_x_min = Math.min(accel_x_min, acceleration.x);
+		accel_y_min = Math.min(accel_y_min, acceleration.y);
+		accel_z_min = Math.min(accel_z_min, acceleration.z);
+        var element = document.getElementById('accelerometer_min');
+        element.innerHTML = 'Min accel X: ' + accel_x_min + '<br />' +
+                            'Min accel Y: ' + accel_y_min + '<br />' +
+                            'Min accel Z: ' + accel_z_min + '<br />';
     }
 
     // onError: Failed to get the acceleration
@@ -65,7 +88,11 @@
   </head>
   <body>
 	<h1>Device Motion</h1>
-    <div id="accelerometer">Waiting for accelerometer...</div>
+    <div id="accelerometer_now">Waiting for accelerometer...</div>
+	<br />
+    <div id="accelerometer_max" style="visibility:hidden" ></div>
+	<br />
+    <div id="accelerometer_min" style="visibility:hidden" ></div>
 	<br />
     <button id="stop_button" style="visibility:visible" onclick="stopWatch();">Stop Watching</button>
     <button id="start_button" style="visibility:hidden" onclick="startWatch();">Start Watching</button>

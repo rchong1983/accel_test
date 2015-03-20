@@ -34,8 +34,24 @@
         if (watchID) {
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
+			var element = document.getElementById('start_button');
+			element.style.visibility ="visibe";
+			var element = document.getElementById('stop_button');
+			element.style.visibility ="hidden";
         }
     }
+	
+	// Start watching the acceleration
+    //
+    function startWatch() {
+        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+		var element = document.getElementById('start_button');
+		element.style.visibility ="hidden";
+		var element = document.getElementById('stop_button');
+		element.style.visibility ="visible";
+        }
+    }
+
 
     // onSuccess: Get a snapshot of the current acceleration
     //
@@ -59,6 +75,7 @@
   <body>
 	<h1>Device Motion</h1>
     <div id="accelerometer">Waiting for accelerometer...</div>
-        <button onclick="stopWatch();">Stop Watching</button>
+        <button id="stop_button" visibility ="visible" onclick="stopWatch();">Stop Watching</button>
+        <button id="start_button" visibility="hidden" onclick="startWatch();">Start Watching</button>
   </body>
 </html>

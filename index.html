@@ -21,10 +21,13 @@
     // Start watching the acceleration
     //
     function startWatch() {
+		var element = document.getElementById('start_button');
+		element.style.visibility = "hidden";
+		var element = document.getElementById('stop_button');
+		element.style.visibility = "visible";
 
-        // Update acceleration every 3 seconds
+		// Update acceleration every 3 seconds
         var options = { frequency: 100 };
-
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
@@ -63,6 +66,7 @@
   <body>
 	<h1>Device Motion</h1>
     <div id="accelerometer">Waiting for accelerometer...</div>
+	<br />
     <button id="stop_button" style="visibility:visible" onclick="stopWatch();">Stop Watching</button>
     <button id="start_button" style="visibility:hidden" onclick="startWatch();">Start Watching</button>
   </body>

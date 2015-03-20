@@ -7,6 +7,7 @@
     <script type="text/javascript" charset="utf-8">
     // The watch id references the current `watchAcceleration`
     var watchID = null;
+	var got_accel = 0;
     var accel_x_max = 0;
     var accel_x_max = 0;
     var accel_x_max = 0;
@@ -45,7 +46,7 @@
             navigator.accelerometer.clearWatch(watchID);
             watchID = null;
             var element = document.getElementById('start_button');
-			element.style.display = "inline";
+			element.style.visibility = "show";
             var element = document.getElementById('stop_button');
 			element.style.display = "none";
         }
@@ -54,7 +55,14 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
+		if (got_accel == 0) {
+		    var element = document.getElementById('stop_button');
+			element.style.visibility = "show";
+		}
+	    got_accel = 1;
+		
         var element = document.getElementById('accelerometer_now');
+		
 		
         element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
                             'Accel Y: ' + acceleration.y + '<br />' +
@@ -96,7 +104,7 @@
 	<br />
     <div id="accelerometer_min">Waiting for accelerometer...</div>
 	<br />
-    <button id="stop_button" style="display:inline" onclick="stopWatch();">Stop Watching</button>
+    <button id="stop_button" style="display:none" onclick="stopWatch();">Stop Watching</button>
     <button id="start_button" style="display:none" onclick="startWatch();">Start Watching</button>
   </body>
 </html>

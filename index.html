@@ -63,12 +63,11 @@
 		
         var element = document.getElementById('accelerometer_now');
 		
-		
         element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
                             'Accel Y: ' + acceleration.y + '<br />' +
                             'Accel Z: ' + acceleration.z + '<br />' +
                             'Timestamp: '      + acceleration.timestamp + '<br />';
-
+/*
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
@@ -86,6 +85,7 @@
         element.innerHTML = 'Min accel X: ' + accel_x_min + '<br />' +
                             'Min accel Y: ' + accel_y_min + '<br />' +
                             'Min accel Z: ' + accel_z_min + '<br />';
+*/
     }
 
     // onError: Failed to get the acceleration

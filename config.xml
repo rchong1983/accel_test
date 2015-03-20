@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+	xmlns:android   = "http://schemas.android.com/apk/res/android"
+        id          = "edu.iupui.n300.DeviceMotion"
+        version     = "1.0.0" >
+
+    <name>Accelerometer</name>
+
+    <description>
+        accelerometer
+    </description>
+
+    <author href="https://github.com/ProfessorKevinForbes/DeviceMotion" email="professorkevinforbes@gmail.com">
+        Kevin Forbes
+    </author>
+
+	<icon src="icon.png" />
+	<gap:splash src="splash.png" />
+
+	<gap:platform name="ios" />
+	<gap:platform name="android" />
+
+
+    <uses-sdk android:minSdkVersion="19"
+              android:targetSdkVersion="19"
+              android:maxSdkVersion="19" />
+
+
+<feature name="Accelerometer">
+    <param name="ios-package" value="CDVAccelerometer" />
+</feature>
+
+
+<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+<gap:plugin name="org.apache.cordova.device-motion" version="0.2.10" />
+</widget>

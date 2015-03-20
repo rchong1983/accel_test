@@ -38,7 +38,7 @@
 		element.style.visibility = "inline";
 
 		// Update acceleration every 3 seconds
-        var options = { frequency: 100 };
+        var options = { frequency: 500 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
@@ -101,9 +101,9 @@
   </head>
   <body>
 	<h1>Device Motion</h1>
-    <div id="accelerometer_now">Waiting for accelerometer...</div>
-	<br />
     <div id="accelerometer_max">Waiting for accelerometer...</div>
+	<br />
+    <div id="accelerometer_now">Waiting for accelerometer...</div>
 	<br />
     <div id="accelerometer_min">Waiting for accelerometer...</div>
 	<br />

@@ -38,7 +38,7 @@
 		element.style.visibility = "inline";
 
 		// Update acceleration every 3 seconds
-        var options = { frequency: 500 };
+        var options = { frequency: 100 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
     }
 
@@ -64,8 +64,7 @@
 		}
 	    got_accel = 1;
 		
-        // var element = document.getElementById('accelerometer_now');
-        var element = document.getElementById('accelerometer_max');
+        var element = document.getElementById('accelerometer_now');
         element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
                             'Accel Y: ' + acceleration.y + '<br />' +
                             'Accel Z: ' + acceleration.z + '<br />' +
@@ -75,21 +74,22 @@
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
-							
+*/							
         var element = document.getElementById('accelerometer_max');
         element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
                             'Max accel Y: ' + accel_y_max + '<br />' +
                             'Max accel Z: ' + accel_z_max + '<br />';
 
+/*
 		accel_x_min = Math.min(accel_x_min, acceleration.x);
 		accel_y_min = Math.min(accel_y_min, acceleration.y);
 		accel_z_min = Math.min(accel_z_min, acceleration.z);
+*/
 		
         var element = document.getElementById('accelerometer_min');
         element.innerHTML = 'Min accel X: ' + accel_x_min + '<br />' +
                             'Min accel Y: ' + accel_y_min + '<br />' +
                             'Min accel Z: ' + accel_z_min + '<br />';
-*/
     }
 
     // onError: Failed to get the acceleration

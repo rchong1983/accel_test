@@ -94,10 +94,6 @@
 */
 
     function onSuccess(acceleration) {
-	    onSuccess_test();
-    }
-
-    function onSuccess_test() {
 		if (got_accel == 0) {
 		    var element = document.getElementById("test");
 			element.innerHTML = 'hi there';
@@ -116,8 +112,8 @@
 		accel_x_max = Math.max(accel_x_max, acceleration.x);
 		accel_y_max = Math.max(accel_y_max, acceleration.y);
 		accel_z_max = Math.max(accel_z_max, acceleration.z);
+		
         var element = document.getElementById("accelerometer_max");
-
         element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
                             'Max accel Y: ' + accel_y_max + '<br />' +
                             'Max accel Z: ' + accel_z_max + '<br />';
@@ -152,7 +148,6 @@
 	<br />
     <button id="stop_button" style="visibility:hidden" onclick="stopWatch();">Stop Watching</button>
     <button id="start_button" style="visibility:hidden" onclick="startWatch();">Start Watching</button>
-    <button id="stop_button" style="visibility:visible" onclick="onSuccess_test();">go</button>
  </body>
   
   

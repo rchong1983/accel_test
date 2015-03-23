@@ -38,8 +38,16 @@
 		element.style.visibility = "visible";
 
 		// Update acceleration every 3 seconds
-        var options = { frequency: 100 };
+        var options = { frequency: 50 };
         watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+		
+		accel_x_max = 0.0;
+		accel_y_max = 0.0;
+		accel_z_max = 0.0;
+
+		accel_x_min = 10.0;
+		accel_y_min = 10.0;
+		accel_z_min = 10.0;
     }
 
     // Stop watching the acceleration
@@ -57,42 +65,6 @@
 
     // onSuccess: Get a snapshot of the current acceleration
     //
-/*
-    function onSuccess(acceleration) {
-		if (got_accel == 0) {
-		    var element = document.getElementById("test");
-			element.innerHTML = 'hi there';
-			
-		    var element = document.getElementById("stop_button");
-			element.style.visibility = "visible";
-		}
-	    got_accel = 1;
-		
-        var element = document.getElementById("accelerometer_now");
-        element.innerHTML = 'Accel X: ' + acceleration.x + '<br />' +
-                            'Accel Y: ' + acceleration.y + '<br />' +
-                            'Accel Z: ' + acceleration.z + '<br />' +
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-
-		accel_x_max = Math.max(accel_x_max, acceleration.x);
-		accel_y_max = Math.max(accel_y_max, acceleration.y);
-		accel_z_max = Math.max(accel_z_max, acceleration.z);
-        var element = document.getElementById("accelerometer_max");
-        element.innerHTML = 'Max accel X: ' + accel_x_max + '<br />' +
-                            'Max accel Y: ' + accel_y_max + '<br />' +
-                            'Max accel Z: ' + accel_z_max + '<br />';
-
-		accel_x_min = Math.min(accel_x_min, acceleration.x);
-		accel_y_min = Math.min(accel_y_min, acceleration.y);
-		accel_z_min = Math.min(accel_z_min, acceleration.z);
-		
-        var element = document.getElementById("accelerometer_min");
-        element.innerHTML = 'Min accel X: ' + accel_x_min + '<br />' +
-                            'Min accel Y: ' + accel_y_min + '<br />' +
-                            'Min accel Z: ' + accel_z_min + '<br />';
-    }
-*/
-
     function onSuccess(acceleration) {
 		if (got_accel == 0) {
 		    var element = document.getElementById("test");
